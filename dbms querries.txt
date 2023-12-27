@@ -1,0 +1,82 @@
+-------------create branch table---------
+create table branch(
+branc_name varchar(50) not null primary key,
+branch_city varchar(50) not null ,
+asset int not null
+);
+insert into branch values ('Mumbai Central', 'Mumbai', 500000);
+insert into branch values ('Delhi Heights', 'Delhi', 750000);
+insert into branch values ('Chennai Harbor', 'Chennai', 600000);
+insert into branch values ('Kolkata Junction', 'Kolkata', 550000);
+insert into branch values ('Bangalore Paradise', 'Bangalore', 700000);
+
+select * from branch;
+-------------create account table---------
+create table account(
+account_no int not null primary key,
+balance int ,
+branch_name varchar(50) not null,
+foreign key (branch_name) references branch(branch_name)
+);
+
+insert into account values (1001, 10000, 'Mumbai Central');
+insert into account values (1002, 15000, 'Delhi Heights');
+insert into account values (1003, 12000, 'Chennai Harbor');
+insert into account values (1004, 8000, 'Kolkata Junction');
+insert into account values (1005, 20000, 'Bangalore Paradise');
+
+select * from account;
+-------------create depositon table---------
+create table depositon(
+cust_name varchar(50) not null primary key,
+account_no int not null,
+foreign key (account_no) references account(account_no)
+)
+insert into depositon values ('Rahul Sharma', 1001);
+insert into depositon values ('Neha Gupta', 1002);
+insert into depositon values ('Amit Patel', 1003);
+insert into depositon values ('Priya Singh', 1004);
+insert into depositon values ('Rajiv Kumar', 1005);
+
+select * from depositon 
+-------------create customers table---------
+create table customers(
+cust_name varchar(50) not null primary key,
+cust_city varchar(50) not null,
+cust_street varchar(50) not null,
+foreign key (cust_name ) references depositon(cust_name) 
+)
+insert into customers values ('Rahul Sharma', 'Mumbai', 'Park Street');
+insert into customers values ('Neha Gupta', 'Delhi', 'Main Road');
+insert into customers values ('Amit Patel', 'Chennai', 'Beach Avenue');
+insert into customers values ('Priya Singh', 'Kolkata', 'Central Avenue');
+insert into customers values ('Rajiv Kumar', 'Bangalore', 'MG Road');
+select * from customers 
+-------------create loan table---------
+create table loan(
+loan_no int not null primary key,
+branch_name varchar(50) not null,
+amount int ,
+foreign key (branch_name) references branch(branch_name)
+)
+insert into loan values (2001, 'Mumbai Central', 50000);
+insert into loan values (2002, 'Delhi Heights', 75000);
+insert into loan values (2003, 'Chennai Harbor', 60000);
+insert into loan values (2004, 'Kolkata Junction', 55000);
+insert into loan values (2005, 'Bangalore Paradise', 70000);
+select * from loan ;
+
+-------------create borrower table---------
+create table borrower(
+cust_name varchar(50) not null primary key,
+loan_no int not null, 
+foreign key (cust_name) references customers(cust_name),
+foreign key (loan_no) references loan(loan_no)
+)
+insert into borrower values ('Rahul Sharma', 2001);
+insert into borrower values ('Neha Gupta', 2002);
+insert into borrower values ('Amit Patel', 2003);
+insert into borrower values ('Priya Singh', 2004);
+insert into borrower values ('Rajiv Kumar', 2005);
+select * from borrower 
+

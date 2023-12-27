@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap');
+
+        *{
+            margin: 0px;
+            font-family: "Poppins", sans-serif;
+        }
+        hr{
+            color: rgb(184, 184, 184);
+            border-top: 0.5px solid #8c8b8b;
+        }
+        main{
+            width: 100%;
+            height: 3000px;
+           
+        }
+        .slider1{
+            width: 100%;
+            height: 800px;
+            background-image: url(images/1.jpg.webp);
+            background-size: cover;
+            position: relative;
+        }
+        .overlay1{
+            width: 100%;
+            height: 700px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        nav{
+            width: 100%;
+            height: 100px;
+            background-color: rgba(0, 0, 0, 0.5);
+            font-size: 14px;
+            color: white;
+            position: fixed;       
+        }
+        .navContainer{
+            margin: auto;
+            width: 1140px;
+        }
+        header{
+            height: 100px;
+            width: 100%;
+            position: relative;
+        }
+        .logo{
+            padding-top: 35px;
+        }
+        .nav-item-group{
+            float: right;
+            /* background-color: red; */
+            margin-top: 26px;
+            height: 50px;
+            width: 780px;
+        }
+        .nav-item{
+            float: left;
+            height: 25px;
+            width: 100px;
+            /* background-color: bisque; */
+            margin-left: 10px;
+            text-align: center;
+            padding-top: 17px;
+            position: relative;
+        }
+        .nav-item :hover{
+            color: #df42b1;
+            
+        }
+        .get-tickets-button{
+            float: left;
+            height: 28px;
+            width: 150px;
+            margin-left: 60px;
+            border-radius: 20px 20px 20px 20px;
+            text-align: center;
+            padding-top: 12px;
+            margin-top: 5px;
+            /* background-color: aqua; */
+            background-image: linear-gradient(to bottom right, purple , purple);
+            font-size: 14px;
+        }
+        .nav-item-text{
+            color: white;
+            font-weight: bold;
+        }
+        .dropdown1{
+            height: 350px;
+            width: 170px;
+            border-radius: 5px 5px 5px 5px;
+            background-color: white;
+            position: absolute;
+            top: 35px;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .nav-item:hover .dropdown1{
+            visibility: visible;
+            opacity: 1;
+        }
+        .dropdown_item{
+            color: black;
+            padding-top: 10px;
+            padding-left: 30px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            text-align: left;
+            position: relative;
+        }
+        .dropdown2{
+            height: 150px;
+            width: 190px;
+            background-color: white;
+          
+            border-radius: 5px 5px 5px 5px;
+            position: absolute;
+            left: 160px;
+            top: -10px;
+            
+            opacity: 0;
+            visibility: hidden;
+        }
+        .dropdown2:hover {
+            color: #df42b1;
+        }
+        .dropdown2_item{
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-left: 30px;
+            text-align: left;
+            padding-top: 10px;
+            /* background-color: rebeccapurple; */
+            color: black;
+
+            
+        }
+        .dropdown_item:hover .dropdown2{
+            opacity: 1;
+            visibility: visible;
+        }
+        .suboverlay_container{
+            width: 80%;
+            height: 300px;
+            /* background-color: rgba(255, 0, 0, 0.315); */
+            color: white;
+            position: absolute;
+            left: 10%;
+            top: 250px;
+        }
+        .textcontainer{
+            text-align: right;
+            font-size: 80px;
+            font-weight: bold;
+            word-spacing: 10em;
+        }
+        .address_text{
+            background-color: rgba(56, 55, 55, 0.5);
+            width: fit-content;
+            padding: 10px;
+            position: absolute;
+            right: 0;
+        }
+        .more_info_button{
+            height: 48px;
+            width: 260px;
+            margin-left: 60px;
+            border-radius: 20px 20px 20px 20px;
+            text-align: center;
+            background-color: aqua;
+            font-size: 14px;
+            padding: 10px;
+            text-align: center;
+            color: inherit;
+            font-weight: bold;
+            word-spacing: 2px;
+            position: absolute;
+            right: 0;
+            bottom: 0px;
+        }
+        .about_conference_container{
+            width: 100%;
+            height: 908x;
+            background-color: #151853;
+        }
+        .about_conference_row{
+            height: 575px;
+            width: 1140px ;
+            background-color:#151853;
+            /* background-color: pink; */
+            margin: auto;
+            color: white;
+            padding: 100px 0px 0px;
+            font-weight: normal;
+        }
+        .countdown_up_area{
+            height: 233px;
+            width: 100%;
+
+            background-color: #151853;
+        }
+        .about_conference_row_item{
+            width: 570px;
+            height: inherit;
+            float: left;
+        }.about-conference-h6{
+            text-decoration: underline;
+            text-decoration-thickness:2px;
+            font-size: 14px;
+            color: #df42b1;
+            padding-bottom: 20px;
+        }
+        .welcome-tex{
+            font-size: 40px;
+            line-height: 50px;
+        }
+        .welcome-para{
+            padding-top: 16px;
+            font-size: 18px;
+            line-height: 30px;
+        }
+        .about-btn{
+            background-image: linear-gradient(to right, pink , purple);
+            width: fit-content;
+        }
+        .intrested-button{
+            float: left;
+            height: 28px;
+            width: 150px;
+            border-radius: 20px 20px 20px 20px;
+            text-align: center;
+            padding-top: 12px;
+            margin-top: 86px;
+            /* background-color: aqua; */
+            background-image: linear-gradient(to bottom right, purple , purple);
+            font-size: 14px;
+        }
+        .countdown-text-div{
+            margin-left: 100px ;
+        }
+        .conference-date{
+                font-size: 14px;
+                color: #df42b1;
+                padding-top: 20px;
+        }
+        .conference-date-desc{
+            font-size: 20px;
+            width: 20%;
+            margin-top: 20px;
+            color: white;
+            float: left;
+           
+        }
+        .countdown-timer-div{
+            width: 60%;
+            background-color: #151853;
+            float: left;
+            margin: auto;
+            margin-left: 60px;
+        }
+        .timer-tile{
+            width:  135px;
+            height: 109px;
+            background-color: #151853;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            float: left;
+            margin-left: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .timer-value{
+            font-size: 62px;
+            color: white; 
+            text-align: center;
+            font-weight: bolder;
+        }
+        .timer-label{
+            color: rgba(255, 255, 255, 0.15);
+            font-size: 18px;
+            text-align: center;
+            font-family: "Poppins", sans-serif;
+        }
+        .our-speakers-div{
+            /* width: 1349px; */
+            width: 100%;
+            height: 1226px;
+            background-color: red;
+            background-image: url("/images/3.jpg");
+            background-image: -webkit-linear-gradient(120deg, #df42b1 0%, #505add 100%);
+            
+        }
+        .our-speakers-text{
+        height: 76px;
+        width: 100%;
+        padding-top: 60px;
+       
+        /* background-color: pink; */
+
+        }
+        .spaker-label{
+            color: white;
+            text-align: center;
+            font-size: 14px;
+        }
+        .who-speaking-heading{
+            text-align: center;
+            font-size: 38px;
+            color: white;
+        }
+        .single-spaker-row{
+            padding: 0px 80px 0px 80px;
+        }
+        .sigle-spaker-tile
+        {
+            width: 343px;
+            height: 372px;
+            background-color: seagreen;
+            float: left;
+            margin: 25px;
+            border-radius: 15px ;
+            position: relative;
+        }
+        .spaker-img-tag{
+            width: 343px;
+            height: 372px;
+            border-radius: 15px ;
+            /* object-fit: cover; */
+        }
+        .spaker-info{
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            color: white;
+            font-size: 20px;
+        }
+        .speaker-name{
+            font-size: 20px;
+            font-weight: 500;
+            color: #ffffff;
+            letter-spacing: 1px;
+            margin-bottom: 10px
+        }
+        .spaker-deg{
+            font-size: 16px;
+            color: #df42b1;
+            letter-spacing: 1px;
+        }
+     
+
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="slider1">
+            <header>
+                <div class="suboverlay_container">
+                    <div class="textcontainer">
+                        <div class="overlay_onoverlay1_item">SCIENCE</div>
+                        <div class="overlay_onoverlay1_item">CONFERENCE</div>
+                    </div>
+                    <div class="address_text">
+                        <div class="overlay_onoverlay1_item">SHANGRI-LA HOTEL,BANGKOK, THAILAND</div>
+                    </div>
+                    <button class="more_info_button">MORE INFORMATION</button>
+                </div>
+                <nav>
+                    <div class="navContainer">
+                        <img class="logo" src="images/logo.png" alt="">
+                    <div class="nav-item-group">
+                        <div class="nav-item">
+                            <a class="nav-item-text" href="">Home</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-item-text" href="#">PAGES
+                                <div class="dropdown1">
+                                    <div class="dropdown_item">- Home </div><hr>
+                                    <div class="dropdown_item">- ABOUT US </div><hr>
+                                    <div class="dropdown_item">- SPEACKERS </div><hr>
+                                    <div class="dropdown_item">- SCHEDULE </div><hr>
+                                    <div class="dropdown_item">- TICKETS </div><hr>
+                                    <div class="dropdown_item">- BLOG </div><hr>
+                                    <div class="dropdown_item">- SINGLE BLOG </div><hr>
+                                    <div class="dropdown_item">- CONTACT </div><hr>
+                                    <div class="dropdown_item">- DROPDOWN 
+                                        <div class="dropdown2">
+                                            <div class="dropdown2_item">- DROPDOWN ITEM</div><hr>
+                                            <div class="dropdown2_item">- DROPDOWN ITEM</div><hr>
+                                            <div class="dropdown2_item">- DROPDOWN ITEM</div><hr>
+                                            <div class="dropdown2_item">- DROPDOWN ITEM</div>
+                                        </div>
+    
+                                    </div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-item-text" href="">SPEAKERS</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-item-text" href="">BLOG</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-item-text" href="#">CONTACT</a>
+                        </div>
+                        <div class="get-tickets-button">GET TICKETS</div>
+                    </div>
+                    </div>
+                </nav>
+                
+            </header>
+            <div class="overlay1">
+            </div>
+        </div>
+    <div class="about_conference_container">
+        <div class="about_conference_row">
+            <div class="about_conference_row_item">
+                <h6 class="about-conference-h6">ABOUT CONFERENCE </h6>
+                <h1 class="welcome-tex">WELCOME TO THE </h1>
+                <h1 class="welcome-tex">PROJECT MANAGEMENT</h1>
+                <p class="welcome-para">The Project Management is a platform to learn expert techniques for
+                     building successful project teams, creating efficient plans and implementing effective tracking measures to ensure your projects come in on deadline and on budget. In one fast-paced, well-designed day, we’ll cover all the essential elements of project management.</p>
+                <!-- <div class="about-btn">INTRESTED</div> -->
+                <div class="intrested-button">INTRESTED</div>
+           
+            </div>          
+            <div class="about_conference_row_item"><img src="images/2.png" alt=""></div>
+        </div>
+        <div class="countdown_up_area">
+
+            <div class="countdown-text-div">
+                <h6 class="conference-date">CONFERENCE DATE</h6>
+                <h6 class="conference-date-desc">COUNT EVERY SECOND UNTIL THE EVENT</h6>
+            </div>
+            <div class="countdown-timer-div">
+                <div class="timer-tile">
+                    <div class="timer-value">00</div>
+                    <div class="timer-label">Months</div>
+                </div>
+                <div class="timer-tile">
+                    <div class="timer-value">00</div>
+                    <div class="timer-label">Days</div>
+                </div>
+                <div class="timer-tile">
+                    <div class="timer-value">00</div>
+                    <div class="timer-label">Hours</div>
+                </div>
+                <div class="timer-tile">
+                    <div class="timer-value">00</div>
+                    <div class="timer-label">Minutes</div>
+                </div>
+                <div class="timer-tile">
+                    <div class="timer-value">00</div>
+                    <div class="timer-label">Seconds</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="our-speakers-div">       
+        <div class="our-speakers-text">       
+            <p class="spaker-label">OUR SPEAKERS</p>
+            <h4 class="who-speaking-heading">
+                WHO'S SPEAKING 
+            </h4>
+        </div>
+        <div class="single-spaker-row">
+            <div class="sigle-spaker-tile">
+                <div class="spaker-img"><img class="spaker-img-tag" src="images/4.jpg" alt="">
+                </div>
+                <div class="spaker-info">
+                    <h5 class="speaker-name">Albert Barnes</h5>
+                    <p class="spaker-deg">Founder</p>
+                </div>
+                
+            </div>
+            <div class="sigle-spaker-tile">
+                <div class="spaker-img"><img class="spaker-img-tag" src="images/5.jpg" alt="">
+                </div>
+                <div class="spaker-info">
+                    <h5 class="speaker-name">Albert Barnes</h5>
+                    <p class="spaker-deg">Founder</p>
+                </div>
+                
+            </div>
+            <div class="sigle-spaker-tile">
+                <div class="spaker-img"><img class="spaker-img-tag" src="images/6.jpg" alt="">
+                </div>
+                <div class="spaker-info">
+                    <h5 class="speaker-name">Albert Barnes</h5>
+                    <p class="spaker-deg">Founder</p>
+                </div>
+                
+            </div>
+            <div class="sigle-spaker-tile">
+                <div class="spaker-img"><img class="spaker-img-tag" src="images/7.jpg" alt="">
+                </div>
+                <div class="spaker-info">
+                    <h5 class="speaker-name">Albert Barnes</h5>
+                    <p class="spaker-deg">Founder</p>
+                </div>
+                
+            </div>
+            <div class="sigle-spaker-tile">
+                <div class="spaker-img"><img class="spaker-img-tag" src="images/8.jpg" alt="">
+                </div>
+                <div class="spaker-info">
+                    <h5 class="speaker-name">Albert Barnes</h5>
+                    <p class="spaker-deg">Founder</p>
+                </div>
+                
+            </div>
+            <div class="sigle-spaker-tile">
+                <div class="spaker-img"><img class="spaker-img-tag" src="images/9.jpg" alt="">
+                </div>
+                <div class="spaker-info">
+                    <h5 class="speaker-name">Albert Barnes</h5>
+                    <p class="spaker-deg">Founder</p>
+                </div>
+                
+            </div>
+       
+        </div>
+    </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        main img{
+            width: 100%;
+            height: 460px;
+            background-color: red;
+        }
+        button{
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+        .btn-slider{
+         
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <main>
+    <img src="images/a-tag-in-html.jpg" id="img1" alt="">
+
+    </main>
+
+
+    <div class="btn-slider">
+    <button onclick="ShowImg()"></button>
+    <button onclick="ShowImg()"></button>
+    <button onclick="ShowImg()"></button>
+
+    </div>
+
+
+    <script>
+
+        function ShowImg()
+        {
+            // alert("hello")
+            document.getElementById('img1').src='images/HTML-Blog-Cover.png';
+        
+        }
+    </script>
+</body>
+</html>

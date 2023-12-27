@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation</title>
+    <style >
+        .navigation{
+                width: 100%;
+                height: 50px;
+                background-color: rgb(199, 247, 187); 
+                display: flex;
+        }
+        .container{
+            width: 1140px;
+            height: 50px;  
+            display: flex;
+            position: relative;;
+          
+        }
+        .blank1{
+            width: 285px;
+            height: 50px;
+            background-color: red;
+        }
+        .navitem{
+            height: 50px;
+            width: 275px;
+            line-height: 2.5;
+            text-align: center;
+            background-color: rgb(247, 247, 175) ;
+            margin-right: 10px;
+        }
+        .submenu{
+            height: 100px;
+            width: 1140px;
+            position: absolute;
+            background-color: rgb(204, 170, 238);
+            top: 100%;
+            left: 0px;
+            display: none;
+        }
+        .about:hover {
+            background-color: aquamarine;
+        }
+        .navitem:hover .submenu{
+            display: block;
+        }
+        .navitem:hover {
+            background-color:  aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div class="navigation">
+        <div class="blank1"></div>
+        <div class="container">
+            <div class="navitem">Home
+                <div class="submenu">Home</div>
+            </div>
+            <div class="navitem">About
+                <div class="submenu">about</div>
+            </div>
+            <div class="navitem">Course
+                <div class="submenu">fdsfsdff</div>
+            </div>
+            <div class="navitem">Gallery
+                <div class="submenu">Gallery</div>
+            </div>  
+        </div>
+        <div class="blank1"></div>
+
+        </div>
+    </div>
+</body>
+</html>
